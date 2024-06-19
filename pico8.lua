@@ -133,7 +133,7 @@ function fget(n) end
 --- Sets the fill pattern.
 --- The pattern is a bitfield, a single number that represents a 4x4 pixel pattern. See API Reference for more details.
 --- API Reference: https://pico-8.fandom.com/wiki/Fillp
---- @param pat number A bitfield representing the fill pattern to use.
+--- @param pat? number A bitfield representing the fill pattern to use.
 function fillp(pat) end
 --- Clear the current fill pattern.
 --- API Reference: https://pico-8.fandom.com/wiki/Fillp
@@ -371,7 +371,7 @@ function btn() end
 --- Tests if a button has just been pressed, with keyboard-style repeating.
 --- API Reference: https://pico-8.fandom.com/wiki/Btnp
 --- @param i Button The button number.
---- @param p Player The player number.
+--- @param p? Player The player number.
 --- @return boolean button_state true only if the button is currently pressed and was not pressed in the previous frame (i.e. it was just pressed)
 function btnp(i, p) end
 --- Gets a bitfield of all button states for players 0 and 1, whether they were pressed in the last frame, with keyboard-style repeating.

@@ -1,14 +1,18 @@
 pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
+#include helpers.lua
+#include objects.lua
+#include player.lua
 #include game.lua
 #include planet.lua
-#include planets.lua
-#include player.lua
+#include scenes/start.lua
+#include scenes/planets.lua
 #include main.lua
 
 _init = function()
  cls()
+ print(❎)
 end
 
 __gfx__

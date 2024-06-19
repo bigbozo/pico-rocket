@@ -1,6 +1,10 @@
+
+_init = init_start
+
+_update60 = update_start()
+
 -- define initial draw-function
-_draw = draw_planets_scene
-_update60 = update_game
-_init = init_game
+_draw = draw_start_scene
+
 
 

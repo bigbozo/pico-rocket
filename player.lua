@@ -1,14 +1,14 @@
 player = {
 				oldp = 1,
-				planet = 4, 
-				speed=2, 
+				planet = 4,
+				speed=2,
 				size=6,
 				transition=1
 }
 
 
 function update_player_transitioning()
-  player.transition += 1/15
+  player.transition = player.transition + 1/15
 	if (player.transition >= 1) then
 	  update_player = update_player_idle
 		player.transition=1
@@ -29,10 +29,10 @@ function update_player_idle()
 		update_player = update_player_transitioning
 	end
 	if btn(2) then
-		settings.scale *=1.01
+		settings.scale =settings.scale * .01
 	end
 	if btn(3) then
-		settings.scale /=1.01
+		settings.scale =settings.scale / 1.01
 	end
 	if btn(4) then
 		_update60 = update_planet
@@ -41,7 +41,6 @@ function update_player_idle()
 end
 
 function draw_player()
-	  
   -- .1 to make backcolor transparent
   fillp(0b01011010010110100101.1)
 	local planet = planets[player.planet]
@@ -51,7 +50,7 @@ function draw_player()
   rect(
    	-size,
   	-size,
-    size+1, 
+    size+1,
     size+1, 7
   )
 	-- crosslines vert 
@@ -66,7 +65,5 @@ function draw_player()
 	 rectfill(4,4,4+4*#planet.name,10,7)
 	 print(planet.name,5,5,8)
 	end
-
 end
 
-update_player = update_player_idle
