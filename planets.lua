@@ -22,7 +22,7 @@ sun = {
       }
     },
     { r=300, speed=2, color=13, size=10, name="pocorn"},
-    { r=450, speed=1, color=12,size=18, name="jupicto", 
+    { r=450, speed=1, color=12,size=18, name="jupicto",
       children= {
         {r=60, speed=13, size=4, color=15, name="nimbuz"},
         {r=100, speed=11, size=3, color=15, name="chocbuz"}
@@ -39,22 +39,22 @@ function init_planets()
   for planet in all(sun.children) do
     planet.id = c
     planet.type = 1
-    c+=1
+    c = c+ 1
     add(planets,planet)
     for moon in all(planet.children) do
       moon.id = c
       moon.type = 2
-      c+=1
+      c = c + 1
       add(planets,moon)
     end
-  end	
+  end
 end
 
 function update_planets()
   for planet in all(sun.children) do
     ct = turns * planet.speed
-    planet.x = planet.r * sin(ct) 
-    planet.y=  planet.r * cos(ct) 
+    planet.x = planet.r * sin(ct)
+    planet.y=  planet.r * cos(ct)
     if (planet.children) then
       for moon in all(planet.children) do
         ct = turns  * moon.speed
@@ -70,6 +70,7 @@ function draw_planets()
   -- draw sun
   circfill(sun.x, sun.y, max(6,sun.size*settings.scale)+1,7)
   circfill(sun.x, sun.y, max(6,sun.size*settings.scale), sun.color)
+
   for planet in all(planets) do
     -- draw orbit of planet
     if (planet.type==1) then

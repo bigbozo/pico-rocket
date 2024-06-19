@@ -8,7 +8,7 @@ player = {
 
 
 function update_player_transitioning()
-  player.transition+=1/15
+  player.transition += 1/15
 	if (player.transition >= 1) then
 	  update_player = update_player_idle
 		player.transition=1
@@ -21,7 +21,6 @@ function update_player_idle()
 		player.planet = min(player.planet+1, #planets)
 	  player.transition =0
 		update_player = update_player_transitioning
-	
 	end
 	if btnp(1) then
 		player.oldp = player.planet
