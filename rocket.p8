@@ -6,7 +6,6 @@ __lua__
 -- #include player.lua
 -- #include game.lua
 -- #include planet.lua
-#include scene.lua
 #include scenes/start.lua
 #include scenes/planets.lua
 #include scenes/planet.lua
