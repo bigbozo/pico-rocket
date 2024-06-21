@@ -24,13 +24,19 @@ PlanetsScene = {
   update = function(self)
     for planet in all(sun.children) do
       ct = self.turns * planet.speed
+      oct = (self.turns - settings.speed) * planet.speed
       planet.x = planet.r * sin(ct)
       planet.y=  planet.r * cos(ct)
+      planet.vx= 3 * planet.r * (sin(ct) - sin(oct))
+      planet.vy= 3 * planet.r * (cos(ct) - cos(oct))
       if (planet.children) then
         for moon in all(planet.children) do
           ct = self.turns * moon.speed
+          oct = (self.turns - settings.speed) * moon.speed
           moon.x = planet.x + moon.r * sin(ct)
           moon.y = planet.y + moon.r * cos(ct)
+          moon.vx= 3 * moon.r * (sin(ct) - sin(oct))
+          moon.vy= 3 * moon.r * (cos(ct) - cos(oct))
         end
       end
     end
@@ -69,6 +75,8 @@ PlanetsScene = {
       end
       -- draw planet
       circfill(planet.x * s, planet.y * s, max(1.5 ,planet.size * s),planet.color)
+      line(planet.x*s, planet.y*s, (planet.x + planet.vx)*s,(planet.y+planet.vy)*s,7)
+
     end
   end,
 
