@@ -3,10 +3,8 @@ PlanetScene = {
   draw= function()
     cls()
     camera(0,0)
-    -- TODO das scheint falsch, planets sollte nicht von 
-    -- dort referenziert werden
-    planet=PlanetsScene.planets[player.planet]
-    circfill(64,64,64,planet.color)
+    planet=planets[player.planet]
+    circfill(64,64,planet.size * 4,planet.color)
     print(planet.name, 63 - #planet.name*2,2,7)
   end,
 

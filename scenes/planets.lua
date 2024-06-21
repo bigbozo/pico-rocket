@@ -2,21 +2,20 @@ PlanetsScene = {
 
   turns = 0,
   name = 'planets',
-  planets = {},
 
   init = function(self)
     local c = 1
-    self.planets = {}
+    planets = {}
     for planet in all(sun.children) do
       planet.id = c
       planet.type = 1
       c = c+ 1
-      add(self.planets,planet)
+      add(planets,planet)
       for moon in all(planet.children) do
         moon.id = c
         moon.type = 2
         c = c + 1
-        add(self.planets,moon)
+        add(planets,moon)
       end
     end
     self:update()
@@ -48,8 +47,8 @@ PlanetsScene = {
 
   draw = function(self)
     cls()
-    local p = self.planets[player.planet]
-    local op = self.planets[player.oldp]
+    local p = planets[player.planet]
+    local op = planets[player.oldp]
     -- TODO: add easing function 
     local x = op.x + (p.x-op.x)*player.transition
     local y = op.y + (p.y-op.y)*player.transition
@@ -63,7 +62,7 @@ PlanetsScene = {
     -- draw sun
     circfill(sun.x, sun.y, max(6,sun.size*settings.scale)+1,7)
     circfill(sun.x, sun.y, max(6,sun.size*settings.scale), sun.color)
-    for planet in all(self.planets) do
+    for planet in all(planets) do
       -- draw orbit of planet
       if (planet.type==1) then
         circ(0, 0, planet.r * s, 1)
@@ -76,7 +75,7 @@ PlanetsScene = {
   draw_player = function(self)
     -- .1 to make backcolor transparent
     fillp(0b01011010010110100101.1)
-    local planet = self.planets[player.planet]
+    local planet = planets[player.planet]
     local size= max(2,planet.size * settings.scale)+1
     camera(-64,-64)
     -- cursor
@@ -94,16 +93,16 @@ PlanetsScene = {
     fillp()
     -- planet name
     if player.transition==1 then
-      rectfill(3,3,5+4*#planet.name,11,8)
-      rectfill(4,4,4+4*#planet.name,10,7)
-      print(planet.name,5,5,8)
+      rectfill(3,3,5+4*#planet.name,11,7)
+      rectfill(4,4,4+4*#planet.name,10,0)
+      print(planet.name,5,5,7)
     end
   end,
 
   handle_player_idle  = function(self)
     if (btnp(0)) then
       player.oldp = player.planet
-      player.planet = min(player.planet+1, #self.planets)
+      player.planet = min(player.planet+1, #planets)
       player.transition =0
     end
     if btnp(1) then
