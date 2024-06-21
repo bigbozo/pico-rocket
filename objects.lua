@@ -1,3 +1,7 @@
+settings = {
+	speed = 0x0.004,
+	scale = .25
+}
 -- linear collection of all objects to iterate through
 planets = {}
 
@@ -33,4 +37,13 @@ sun = {
       }
     }
   }
+}
+
+
+player = {
+  oldp = 1,
+  planet = 4,
+  speed=2,
+  size=6,
+  transition=1
 }

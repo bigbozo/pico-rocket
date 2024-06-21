@@ -1,10 +1,11 @@
+CurrentScene = StartScene
 
-_init = init_start
-
-_update60 = update_start()
+_update = function()
+  CurrentScene:update()
+  CurrentScene:handle()
+end
 
 -- define initial draw-function
-_draw = draw_start_scene
-
-
-
+_draw = function()
+  CurrentScene:draw()
+end
