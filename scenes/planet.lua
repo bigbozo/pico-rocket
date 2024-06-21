@@ -12,7 +12,7 @@ PlanetScene = {
   end,
 
   handle= function()
-    if btn(3) then
+    if btnp(4) then
       CurrentScene = PlanetsScene
     end
   end,
