@@ -125,7 +125,7 @@ PlanetsScene = {
       settings.scale = settings.scale / 1.01
     end
     if btnp(4) then
-      CurrentScene = PlanetScene
+      change_scene(PlanetScene)
     end
   end,
 

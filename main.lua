@@ -1,5 +1,3 @@
-CurrentScene = StartScene
-
 _update = function()
   CurrentScene:update()
   CurrentScene:handle()
@@ -9,3 +7,11 @@ end
 _draw = function()
   CurrentScene:draw()
 end
+
+change_scene = function(scene)
+  printh('cs')
+  CurrentScene = scene
+  scene:init()
+end
+
+change_scene(StartScene)

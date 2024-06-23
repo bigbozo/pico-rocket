@@ -8,12 +8,15 @@ PlanetScene = {
     print(planet.name, 63 - #planet.name*2,2,7)
   end,
 
-  update= function()
+  update = function()
+  end,
+
+  init = function()
   end,
 
   handle= function()
     if btnp(4) then
-      CurrentScene = PlanetsScene
+      change_scene(PlanetsScene)
     end
   end,
 
