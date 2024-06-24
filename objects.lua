@@ -30,7 +30,7 @@ sun = {
       }
     },
     { r=300, speed=2, color=13, size=10, name="pocorn"},
-    { r=450, speed=1, color=12,size=18, name="jupicto",
+    { r=450, speed=1, color=12,size=18, name="jupico",
       children= {
         {r=60, speed=13, size=4, color=15, name="nimbuz"},
         {r=100, speed=11, size=3, color=15, name="chocbuz"}
