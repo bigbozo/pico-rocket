@@ -25,8 +25,8 @@ StartScene = {
     printc("a game of superlatives",38,3)
     line(0,64,127,64,7 )
     -- bullets
-    printc("- build a rockets",70,3)
-    printc("- explore a solar system",78,3)
+    printc("- build a rocket",70,3)
+    printc("- explore the solar system",78,3)
     printc("put the universe in your pocket",92,3)
     -- instructions
     printc("press ❎ to start",109,9)
