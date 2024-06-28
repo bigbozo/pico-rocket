@@ -25,7 +25,7 @@ sun = {
         {r=30, mass=5, speed=13, size=3, color=15, name="wambuz"}
       }
     },
-    { r=210, mass=200, speed=3, color=14, size=15, name="coip",
+    { r=210, mass=200, speed=3, color=14, size=15, name="ciopo",
       children = {
         {r=25,mass=20, speed=7, size=6, color=15, name="shabuz"}
       }
