@@ -7,17 +7,21 @@ PlanetsScene = {
     local c = 1
     planets = {}
     for planet in all(sun.children) do
+
       planet.id = c
       planet.type = 1
       c = c+ 1
       add(planets,planet)
+
       for moon in all(planet.children) do
         moon.id = c
         moon.type = 2
         c = c + 1
         add(planets,moon)
       end
+
     end
+
     self:update()
   end,
 
