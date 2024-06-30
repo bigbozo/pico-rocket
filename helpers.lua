@@ -1,6 +1,12 @@
-function printc(t,y,c)
-  print(t,64-#t*2+1,y+1,0)
-  print(t,64-#t*2,y,c)
+function printc(t,y,c,w)
+  if w then 
+    w=w/2
+  else
+    w=64
+  end
+
+  print(t,w-#t*2+1,y+1,0)
+  print(t,w-#t*2,y,c)
 end
 
 function printr(t,y,c)
