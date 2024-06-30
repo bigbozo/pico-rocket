@@ -4,6 +4,8 @@ HangarScene = {
 
   rocket = {},
 
+  brush = 1,
+
   init = function(self)
     -- nothing so far
   end,
@@ -40,6 +42,9 @@ HangarScene = {
       self.cursor.dy = -1
       self.cursor.transition = 0
     end
+    if btnp(4) then
+      self:togglePart()
+    end
     if btnp(5) then
       change_scene(PlanetScene)
     end
@@ -47,24 +52,49 @@ HangarScene = {
 
   draw = function(self)
     cls(12)
-    camera()
+
+    self.draw_grid(24,24)
+    -- draw cursor
+    local x = 28 + (self.cursor.x + self.cursor.transition * self.cursor.dx) * 8 -1
+    local y = 100 + (self.cursor.y + self.cursor.transition * self.cursor.dy) * 8
+    draw_cursor(x,y,6,7)
+
+    -- draw controls
+    self:draw_controls()
+  end,
+
+  draw_grid = function(x, y)
     -- draw grid + axes
-    spr(50,16,16)
-    spr(48,16,104)
-    spr(48,104,104)
-    for i=3,12 do
-      spr(49,16,i*8)
-      spr(48,i*8,104)
-      for j=3,12 do
+    camera(-x,-y)
+    spr(50,-8,-8)
+    spr(48,-8,80)
+    spr(48,80,80)
+    for i=0,9 do
+      spr(49,-8,i*8)
+      spr(48,i*8,80)
+      for j=0,9 do
         spr(51,j*8,i*8)
       end
     end
+    camera()
+  end,
 
-    -- draw cursor
-    camera(-28,-100)
-    local x = (self.cursor.x + self.cursor.transition * self.cursor.dx) * 8 -1
-    local y = (self.cursor.y + self.cursor.transition * self.cursor.dy) * 8
-    draw_cursor(x,y,6,7)
+  draw_controls = function(self)
+    camera(-4,-4)
+    palt(0, false)
+    local c=0
+    for i,part in pairs(rocket_parts) do
+      if self.brush == i then
+
+      rect(i*13-2,2,i*13+9,13,1)
+      else
+      rect(i*13-2,2,i*13+9,13,2)
+      end
+
+      spr(part.spr,i*13,4)
+    end
+    camera()
   end
+
 
 }

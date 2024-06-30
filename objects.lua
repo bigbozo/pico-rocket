@@ -48,3 +48,10 @@ player = {
   size=6,
   transition=1
 }
+
+rocket_parts = {
+  { spr = 10, name = "integrity" },
+  { spr = 44, name = "engine" },
+  { spr = 11, name = "lifesupport" },
+  { spr = 13, name = "antenna" }
+}
