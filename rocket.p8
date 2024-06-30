@@ -11,7 +11,6 @@ __lua__
 #include scenes/planet.lua
 #include scenes/hangar.lua
 #include main.lua
-#include main.lua
 
 _init = function()
  cls()
