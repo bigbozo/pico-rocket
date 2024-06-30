@@ -9,7 +9,7 @@ _draw = function()
 end
 
 change_scene = function(scene)
-  printh('cs')
+  printh(scene)
   CurrentScene = scene
   scene:init()
 end

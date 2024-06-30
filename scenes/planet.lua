@@ -36,8 +36,11 @@ PlanetScene = {
   end,
 
   handle= function()
-    if btnp(4) then
+    if btnp(5) then
       change_scene(PlanetsScene)
+    end
+    if btnp(4) then
+      change_scene(HangarScene)
     end
   end,
 
