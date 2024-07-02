@@ -4,6 +4,8 @@ HangarScene = {
   max_w = 9,
   max_h = 9,
 
+  price = 0,
+
   -- rect table containing rocket_parts
   rocket = {},
 
@@ -28,6 +30,16 @@ HangarScene = {
       self.cursor.dx = 0
       self.cursor.dy = 0
     end
+    self.price = 0
+    for i=1,self.max_w do
+      for j=1,self.max_h do
+        local p = self.rocket[i][j]
+        if (p.price) then
+          self.price+=p.price
+        end
+      end
+    end
+
   end,
 
   handle = function(self)
@@ -88,6 +100,8 @@ HangarScene = {
 
     -- draw controls
     self:draw_controls()
+    camera()
+    printc("$ " .. self.price, 20,7)
   end,
 
   draw_grid = function(self, x, y)
