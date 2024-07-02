@@ -50,8 +50,12 @@ player = {
 }
 
 rocket_parts = {
-  { spr = 10, name = "integrity" },
-  { spr = 44, name = "engine" },
-  { spr = 11, name = "lifesupport" },
-  { spr = 13, name = "antenna" }
+  { spr = 52, name = "back", action="back"},
+  { spr = 10, name = "integrity" , action="part", frame=true},
+  { spr = 11, name = "lifesupport" , action="part", frame=true},
+  { spr = 53, name = "fuel" , action="part", frame=true},
+  { spr = 55, name = "transport", action="part", frame=true},
+  { spr = 44, name = "engine" , action="part"},
+  { spr = 13, name = "antenna" , action="part"},
+  { spr = 54, name = "trash", action="erase"},
 }
